@@ -11,9 +11,10 @@
 
 ## 📂 常用开源工具与镜像索引
 
-| 仓库名称 | 类别/用途 | 上游原始仓库 | 同步状态 | 说明 |
+| 仓库名称 | 类别 / 用途 | 上游原始仓库 | 同步状态 | 说明 |
 | :--- | :--- | :--- | :---: | :--- |
-| *(待添加)* | *(分类)* | `owner/repo` | 🟢 实时 | 欢迎添加首批收录工具 |
+| [**open-saas**](https://github.com/jason-xiao-tools-mirrors/open-saas) | SaaS 模板 / 全栈脚手架 | [`wasp-lang/open-saas`](https://github.com/wasp-lang/open-saas) | 🟢 实时同步 | 现代化免费全栈 SaaS 启动套件（React, Node.js, Prisma, 认证/支付/邮件集成） |
+| [**Mole**](https://github.com/jason-xiao-tools-mirrors/Mole) | macOS 系统优化 / 效率工具 | [`tw93/Mole`](https://github.com/tw93/Mole) | 🟢 实时同步 | 🐹 Mac 深度清理、应用卸载、状态监控与系统优化工具（原生 App + CLI） |
 
 ---
 
@@ -31,5 +32,5 @@ gh repo fork <owner/repo> --org jason-xiao-tools-mirrors --clone=false
 ```
 例如：
 ```bash
-gh repo fork clash-verge-rev/clash-verge-rev --org jason-xiao-tools-mirrors --clone=false
+gh repo fork wasp-lang/open-saas --org jason-xiao-tools-mirrors --clone=false
 ```
