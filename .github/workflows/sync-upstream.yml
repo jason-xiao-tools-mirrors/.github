@@ -1,0 +1,29 @@
+name: Sync Forks with Upstream
+
+on:
+  schedule:
+    # 每天凌晨 02:00 UTC 自动触发同步
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync all organization forks
+        env:
+          GH_TOKEN: ${{ secrets.GH_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Checking repositories in jason-xiao-tools-mirrors..."
+          REPOS=$(gh repo list jason-xiao-tools-mirrors --fork --json nameWithOwner -q '.[].nameWithOwner')
+          
+          if [ -z "$REPOS" ]; then
+            echo "No forked repositories found yet."
+            exit 0
+          fi
+
+          for repo in $REPOS; do
+            echo "----------------------------------------"
+            echo "🔄 Syncing $repo with upstream..."
+            gh repo sync "$repo" || echo "⚠️ Warning: Failed to sync $repo"
+          done
